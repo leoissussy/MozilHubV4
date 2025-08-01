@@ -1,116 +1,664 @@
-local Fluent = 
-loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NguyenLam2504/rblx/refs/heads/main/gay.lua"))()
-loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MozilOnTopp/MozilHub/refs/heads/main/Fluent"))()
-
-local Window = Fluent:CreateWindow({
-    Title = "MozilHub V3",
-    SubTitle = "- Blox Fruits",
-    TabWidth = 160,
-    Size = UDim2.fromOffset(530, 350),
-    Acrylic = false,
-    Theme = "Dark",
-    MinimizeKey = Enum.KeyCode.End
-})
-local Tabs = {
-    Information = Window:AddTab({ Title = "Information", Icon = "clipboard" }),
-    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
-    Sea = Window:AddTab({ Title = "Draco Event", Icon = "flower" }),
-    Setting = Window:AddTab({ Title = "Settings", Icon = "settings" }),
-    Player = Window:AddTab({ Title = "PvP", Icon = "ghost" }),
-    Teleport = Window:AddTab({ Title = "Teleport", Icon = "map-pin" }),
-    Fruit = Window:AddTab({ Title = "Fruit", Icon = "apple" }),
-    Raid = Window:AddTab({ Title = "Raid", Icon = "swords" }),
-    Race = Window:AddTab({ Title = "Race", Icon = "chevrons-right" }),
-    Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	Misc = Window:AddTab({ Title = "Others", Icon = "skull" }),
-}
-local Options = Fluent.Options
-do
+-- discord.gg/25ms
 
 
-
-
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-	game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-	wait(1)
-	game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
-
-local a=Instance.new("ScreenGui")local b=Instance.new("ImageButton")local c=Instance.new("UICorner")a.Parent=game.Players.LocalPlayer:WaitForChild("PlayerGui")a.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;b.Parent=a;b.BackgroundColor3=Color3.fromRGB(255,255,255)b.BorderColor3=Color3.fromRGB(0,0,0)b.BorderSizePixel=0;b.Position=UDim2.new(0.103761353,0,0.214939028,0)b.Size=UDim2.new(0,40,0,40)b.Image="rbxassetid://81767899440204"c.Parent=b;local function d()local e=Instance.new('LocalScript',b)e.Parent.MouseButton1Click:Connect(function()game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)end)end;coroutine.wrap(d)()
-
-
---------------------------------------------------------------------------------------------------------------------------------------------
---
-
-local Mastery = Tabs.Information:AddSection("Job Id")
-
-local JobAiDee = Tabs.Information:AddParagraph({
-        Title = "Id Server join",
-        Content = ""
-    })    
-spawn(function()
-    while wait() do
-        pcall(function()
-            JobAiDee:SetDesc(""..game.JobId)
-        end)
-    end
-end)
-
-local Input = Tabs.Information:AddInput("Input", {
-    Title = "Job Id",
-    Default = "",
-    Placeholder = "Paste Job Id",
-    Numeric = false, -- Only allows numbers
-    Finished = false, -- Only calls callback when you press enter
-    Callback = function(Value)
-        _G.Job = Value
-    end
-})
-
-Tabs.Information:AddButton({
-    Title = "Join Job ID",
-    Description = "",
-    Callback = function()
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
-    end
-})
-
-Tabs.Information:AddButton({
-    Title = "Copy Job ID",
-    Description = "",
-    Callback = function()
-        setclipboard(tostring(game.JobId))
-    end
-})
-        
-Toggle = Tabs.Information:AddToggle("MyToggle", {Title = "Spam Join Job Id", Default = false })
-    Toggle:OnChanged(function(Value)
-     _G.Join = Value
-end)
-		
-spawn(function()
-    while wait() do
-        if _G.Join then
-            game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
+shared.LoaderTitle = "Subscribe To LeoBestScript (CRACKED)";
+shared.LoaderKeyFrames = {
+    [1] = {
+        1,
+        10
+    },
+    [2] = {
+        2,
+        30
+    },
+    [3] = {
+        3,
+        60
+    },
+    [4] = {
+        2,
+        100
+    }
+};
+local v2 = {
+    LoaderData = {
+        Name = shared.LoaderTitle or "A Loader",
+        Colors = shared.LoaderColors or {
+            Main = Color3.fromRGB(0, 0, 0),
+            Topic = Color3.fromRGB(200, 200, 200),
+            Title = Color3.fromRGB(255, 255, 255),
+            LoaderBackground = Color3.fromRGB(40, 40, 40),
+            LoaderSplash = Color3.fromRGB(130, 36, 212)
+        }
+    },
+    Keyframes = shared.LoaderKeyFrames or {
+        [1] = {
+            1,
+            10
+        },
+        [2] = {
+            2,
+            30
+        },
+        [3] = {
+            3,
+            60
+        },
+        [4] = {
+            2,
+            100
+        }
+    }
+};
+local v3 = {
+    [1] = "",
+    [2] = "",
+    [3] = "",
+    [4] = ""
+};
+function TweenObject(v178, v179, v180)
+    game.TweenService:Create(v178, TweenInfo.new(v179, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), v180):Play();
+end
+function CreateObject(v181, v182)
+    local v183 = Instance.new(v181);
+    local v184;
+    for v416, v417 in pairs(v182) do
+        if (v416 ~= "Parent") then
+            v183[v416] = v417;
+        else
+            v184 = v417;
         end
     end
-end)
+    v183.Parent = v184;
+    return v183;
+end
+local function v4(v186, v187)
+    local v188 = Instance.new("UICorner");
+    v188.CornerRadius = UDim.new(0, v186);
+    v188.Parent = v187;
+end
+local v5 = CreateObject("ScreenGui", {
+    Name = "Core",
+    Parent = game.CoreGui
+});
+local v6 = CreateObject("Frame", {
+    Name = "Main",
+    Parent = v5,
+    BackgroundColor3 = v2.LoaderData.Colors.Main,
+    BorderSizePixel = 0,
+    ClipsDescendants = true,
+    Position = UDim2.new(0.5, 0, 0.5, 0),
+    AnchorPoint = Vector2.new(0.5, 0.5),
+    Size = UDim2.new(0, 0, 0, 0)
+});
+v4(12, v6);
+local v7 = CreateObject("ImageLabel", {
+    Name = "UserImage",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Image = "rbxassetid://81767899440204",
+    Position = UDim2.new(0, 15, 0, 10),
+    Size = UDim2.new(0, 50, 0, 50)
+});
+v4(25, v7);
+local v8 = CreateObject("TextLabel", {
+    Name = "UserName",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Text = "Youtube: LeoBestScript",
+    Position = UDim2.new(0, 75, 0, 10),
+    Size = UDim2.new(0, 200, 0, 50),
+    Font = Enum.Font.GothamBold,
+    TextColor3 = v2.LoaderData.Colors.Title,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v9 = CreateObject("TextLabel", {
+    Name = "Top",
+    TextTransparency = 1,
+    Parent = v6,
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0, 30, 0, 70),
+    Size = UDim2.new(0, 301, 0, 20),
+    Font = Enum.Font.Gotham,
+    Text = "Loader",
+    TextColor3 = v2.LoaderData.Colors.Topic,
+    TextSize = 10,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v10 = CreateObject("TextLabel", {
+    Name = "Title",
+    Parent = v6,
+    TextTransparency = 1,
+    BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0, 30, 0, 90),
+    Size = UDim2.new(0, 301, 0, 46),
+    Font = Enum.Font.Gotham,
+    RichText = true,
+    Text = "<b>" .. v2.LoaderData.Name .. "</b>",
+    TextColor3 = v2.LoaderData.Colors.Title,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Left
+});
+local v11 = CreateObject("Frame", {
+    Name = "BG",
+    Parent = v6,
+    AnchorPoint = Vector2.new(0.5, 0),
+    BackgroundTransparency = 1,
+    BackgroundColor3 = v2.LoaderData.Colors.LoaderBackground,
+    BorderSizePixel = 0,
+    Position = UDim2.new(0.5, 0, 0, 70),
+    Size = UDim2.new(0.8500000238418579, 0, 0, 24)
+});
+v4(8, v11);
+local v12 = CreateObject("Frame", {
+    Name = "Progress",
+    Parent = v11,
+    BackgroundColor3 = v2.LoaderData.Colors.LoaderSplash,
+    BackgroundTransparency = 1,
+    BorderSizePixel = 0,
+    Size = UDim2.new(0, 0, 0, 24)
+});
+v4(8, v12);
+local v13 = CreateObject("TextLabel", {
+    Name = "StepLabel",
+    Parent = v6,
+    BackgroundTransparency = 1,
+    Position = UDim2.new(0.5, 0, 1, - 25),
+    Size = UDim2.new(1, - 20, 0, 20),
+    Font = Enum.Font.Gotham,
+    Text = "",
+    TextColor3 = v2.LoaderData.Colors.Topic,
+    TextSize = 14,
+    TextXAlignment = Enum.TextXAlignment.Center,
+    AnchorPoint = Vector2.new(0.5, 0.5)
+});
+function UpdateStepText(v191)
+    v13.Text = v3[v191] or "" ;
+end
+function UpdatePercentage(v193, v194)
+    TweenObject(v12, 0.5, {
+        Size = UDim2.new(v193 / 100, 0, 0, 24)
+    });
+    UpdateStepText(v194);
+end
+TweenObject(v6, 0.25, {
+    Size = UDim2.new(0, 346, 0, 121)
+});
+wait();
+TweenObject(v9, 0.5, {
+    TextTransparency = 0
+});
+TweenObject(v10, 0.5, {
+    TextTransparency = 0
+});
+TweenObject(v11, 0.5, {
+    BackgroundTransparency = 0
+});
+TweenObject(v12, 0.5, {
+    BackgroundTransparency = 0
+});
+for v195, v196 in pairs(v2.Keyframes) do
+    wait(v196[1]);
+    UpdatePercentage(v196[2], v195);
+end
+UpdatePercentage(100, 4);
+TweenObject(v9, 0.5, {
+    TextTransparency = 1
+});
+TweenObject(v10, 0.5, {
+    TextTransparency = 1
+});
+TweenObject(v11, 0.5, {
+    BackgroundTransparency = 1
+});
+TweenObject(v12, 0.5, {
+    BackgroundTransparency = 1
+});
+wait(0.5);
+TweenObject(v6, 0.25, {
+    Size = UDim2.new(0, 0, 0, 0)
+});
+wait(0.25);
+v5:Destroy();
+-- spawn(function()
+--     while wait() do
+--         function print()
+--         end
+--         function warn()
+--         end
+--         function error()
+--         end
+--         debug.traceback = function()
+--             return "Traceback blocked";
+--         end;
+--         debug.info = function()
+--             return "Info blocked";
+--         end;
+--         local v420 = getrawmetatable(game);
+--         if (v420 and not v420.__metatable) then
+--             setreadonly(v420, false);
+--             local v658 = v420.__index;
+--             local v659 = v420.__newindex;
+--             v420.__index = function(v759, v760)
+--                 if ((v760 == "debug") or (v760 == "getrawmetatable")) then
+--                     error("Anti Skid: Tampering detected!");
+--                 end
+--                 return v658(v759, v760);
+--             end;
+--             v420.__newindex = function(v761, v762, v763)
+--                 if ((v762 == "debug") or (v762 == "getrawmetatable")) then
+--                     error("Anti Skid: Tampering detected!");
+--                 end
+--                 return v659(v761, v762, v763);
+--             end;
+--             setreadonly(v420, true);
+--         end
+--         local function v421()
+--             local v568 = {
+--                 "_G",
+--                 "debug",
+--                 "getgenv",
+--                 "getrawmetatable",
+--                 "setfenv",
+--                 "loadstring",
+--                 "hookfunction"
+--             };
+--             for v662, v663 in ipairs(v568) do
+--                 local v664, v665 = pcall(function()
+--                     return _G[v663];
+--                 end);
+--                 if (v664 and v665) then
+--                     error("Anti Skid: Environment tampering detected!");
+--                 end
+--             end
+--         end
+--         local function v422()
+--             local v569 = {
+--                 getrawmetatable,
+--                 setreadonly,
+--                 getgenv,
+--                 debug.getinfo,
+--                 debug.getregistry
+--             };
+--             for v666, v667 in ipairs(v569) do
+--                 if v667 then
+--                     error("Anti Skid: Hook tampering detected!");
+--                 end
+--             end
+--         end
+--         local v423 = game:FindService("HttpService");
+--         if v423 then
+--             v423.RequestAsync = function()
+--                 error("HTTP Requests Blocked");
+--             end;
+--             v423.GetAsync = function()
+--                 error("HTTP Get Blocked");
+--             end;
+--             v423.PostAsync = function()
+--                 error("HTTP Post Blocked");
+--             end;
+--         end
+--         function collectgarbage()
+--             error("GC Blocked");
+--         end
+--         os.time = function()
+--             error("OS Time Blocked");
+--         end;
+--         pcall(v421);
+--         pcall(v422);
+--     end
+-- end);
+local v14 = loadstring(game:HttpGet("https://raw.githubusercontent.com/MozilOnTopp/MozilHub/refs/heads/main/Fluent"))();
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local LocalPlayer = Players.LocalPlayer
+local Fluent = Library -- Gán biến Fluent
 
+local currentTween = nil
+local leviathanGateConnection = nil
+local rockConnection = nil -- No longer used for DescendantAdded
+local scriptEnabled = false
+local lockHeightMode = true
+local destroyRockMode = false
+local customY = 100
+local tweenSpeed = 350
+local minimized = false
+local lastBoat, lastSeat = nil, nil
+local playerTweening = false -- Khôi phục biến playerTweening
+local autoReturnEnabled = false
+local killAuraEnabled = false
+local killAuraRange = 100
+local selectedIslandCoord = nil
+local islandTweening = false
+local boatProtectEnabled = false -- Bảo vệ thuyền
+local boatProtectImmediateEnabled = false -- Bảo vệ thuyền ngay lập tức
+local boatProtectTween = nil
+local boatProtectConnection = nil
+local originalBoatProtectY = nil
+local currentBoat = nil
+_G.Random_Auto = false -- Auto Random Fruit
+local selectedPlayer = nil -- Biến lưu player được chọn cho Spectate và Tween Player
+local playerTweenInfo = nil
+local rockTouchConnection = nil -- Biến connection cho sự kiện chạm đá
 
-First_Sea = false
-Second_Sea = false
-Third_Sea = false
-local placeId = game.PlaceId
-if placeId == 2753915549 then
-First_Sea = true
-elseif placeId == 4442272183 then
-Second_Sea = true
-elseif placeId == 7449423635 then
-Third_Sea = true
+-- Hàm hỗ trợ
+local function setBoatNoClip(boat, enable)
+    for _, desc in ipairs(boat:GetDescendants()) do
+        if desc:IsA("BasePart") then
+            desc.CanCollide = not enable
+        end
+    end
+end
+
+local function setPlayerNoClip(char, enable)
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("BasePart") then
+            desc.CanCollide = not enable
+        end
+    end
+end
+
+local function getBoatVehicleSeat()
+    local boatsFolder = Workspace:FindFirstChild("Boats")
+    if not boatsFolder then return nil, nil end
+
+    for _, boat in ipairs(boatsFolder:GetChildren()) do
+        local seat = boat:FindFirstChild("VehicleSeat")
+        if seat and seat.Occupant and seat.Occupant.Parent == LocalPlayer.Character then
+            return boat, seat
+        end
+    end
+    return nil, nil
+end
+
+local function stopTween(reason)
+    if currentTween then
+        currentTween:Cancel()
+        currentTween = nil
+        print(reason or "Tween dừng.")
+    end
+    if leviathanGateConnection then
+        leviathanGateConnection:Disconnect()
+        leviathanGateConnection = nil
+    end
+    if playerTweenInfo then
+        playerTweenInfo:Cancel()
+        playerTweenInfo = nil
+    end
+    scriptEnabled = false
+    playerTweening = false
+    islandTweening = false
+    local boat, _ = getBoatVehicleSeat()
+    if boat then
+        setBoatNoClip(boat, false)
+    end
+    if LocalPlayer.Character then
+        setPlayerNoClip(LocalPlayer.Character, false)
+    end
+    stopBoatProtect() -- Dừng bảo vệ thuyền khi tween dừng
+    setRockDestruction(false) -- Ensure rock destruction is off when tween is stopped
+end
+
+local function stopIfMapObjectAppears(child)
+    if child.Name == "LeviathanGate" then
+        stopTween("LeviathanGate xuất hiện.")
+    elseif child.Name == "PrehistoricIsland" then
+        stopTween("PrehistoricIsland xuất hiện.")
+    end
+end
+
+local function checkLeaveBoat()
+    local _, seat = getBoatVehicleSeat()
+    if not seat then
+        stopTween("Bạn đã rời thuyền.")
+    end
+end
+
+local function tweenBoatToVector3(targetPos)
+    -- Nếu đang tween => dừng cũ
+    if currentTween then
+        stopTween("Dừng tween cũ.")
+    end
+    local boat, seat = getBoatVehicleSeat()
+    if not boat then
+        warn("Không tìm thấy thuyền bạn đang ngồi!")
+        return
+    end
+    lastBoat, lastSeat = boat, seat
+    currentBoat = boat -- Cập nhật thuyền hiện tại cho bảo vệ thuyền
+
+    local primary = boat.PrimaryPart
+    if not primary then
+        warn("Thuyền không có PrimaryPart!")
+        return
+    end
+
+    -- Bật no clip
+    setBoatNoClip(boat, true)
+    if LocalPlayer.Character then
+        setPlayerNoClip(LocalPlayer.Character, true)
+    end
+
+    local currentPos = primary.Position
+    local finalY = lockHeightMode and customY or currentPos.Y
+    if lockHeightMode then
+        primary.CFrame = CFrame.new(currentPos.X, finalY, currentPos.Z)
+    end
+
+    local distance = (Vector3.new(targetPos.X, finalY, targetPos.Z) - primary.Position).Magnitude
+    local tweenTime = distance / tweenSpeed
+
+    local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+    local goal = { CFrame = CFrame.new(targetPos.X, finalY, targetPos.Z) }
+
+    currentTween = TweenService:Create(primary, tweenInfo, goal)
+    currentTween:Play()
+
+    task.spawn(function()
+        while currentTween and currentTween.PlaybackState == Enum.PlaybackState.Playing do
+            checkLeaveBoat()
+            task.wait(0.1)
+        end
+        -- Khi tween xong => tắt no clip
+        setBoatNoClip(boat, false)
+        if LocalPlayer.Character then
+            setPlayerNoClip(LocalPlayer.Character, false)
+        end
+        islandTweening = false
+        currentBoat = nil -- Reset thuyền hiện tại khi tween xong
+    end)
+
+    -- Theo dõi LeviathanGate/PrehistoricIsland
+    if leviathanGateConnection then
+        leviathanGateConnection:Disconnect()
+    end
+    leviathanGateConnection = Workspace:WaitForChild("Map").ChildAdded:Connect(stopIfMapObjectAppears)
+end
+
+-- Hàm Tween thuyền đến player
+local function tweenBoatToPlayer(targetPlayer)
+    if playerTweening then
+        warn("Đang Tween đến player khác, hãy STOP trước.")
+        return
+    end
+    playerTweening = true
+
+    -- Nếu đang tween => dừng cũ
+    if currentTween then
+        stopTween("Dừng tween cũ.")
+    end
+
+    local boat, seat = getBoatVehicleSeat()
+    if not boat then
+        warn("Không tìm thấy thuyền đang ngồi!")
+        playerTweening = false
+        return
+    end
+    lastBoat, lastSeat = boat, seat
+
+    local primary = boat.PrimaryPart
+    if not primary then
+        warn("Thuyền không có PrimaryPart!")
+        playerTweening = false
+        return
+    end
+
+    -- Bật no clip
+    setBoatNoClip(boat, true)
+    if LocalPlayer.Character then
+        setPlayerNoClip(LocalPlayer.Character, true)
+    end
+
+    local char = targetPlayer.Character
+    if not char or not char:FindFirstChild("HumanoidRootPart") then
+        warn("Player chưa load xong hoặc không có HRP!")
+        playerTweening = false
+        -- Tắt no clip
+        setBoatNoClip(boat, false)
+        if LocalPlayer.Character then
+            setPlayerNoClip(LocalPlayer.Character, false)
+        end
+        return
+    end
+
+    local playerPos = char.HumanoidRootPart.Position
+    local currentPos = primary.Position
+    local finalY = lockHeightMode and customY or currentPos.Y
+    if lockHeightMode then
+        primary.CFrame = CFrame.new(currentPos.X, finalY, currentPos.Z)
+    end
+
+    local distance = (Vector3.new(playerPos.X, finalY, playerPos.Z) - primary.Position).Magnitude
+    local tweenTime = distance / tweenSpeed
+
+    local tweenInfo = TweenInfo.new(tweenTime, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+    local goal = { CFrame = CFrame.new(playerPos.X, finalY, playerPos.Z) }
+
+    playerTweenInfo = TweenService:Create(primary, tweenInfo, goal)
+    playerTweenInfo:Play()
+
+    task.spawn(function()
+        while playerTweenInfo and playerTweenInfo.PlaybackState == Enum.PlaybackState.Playing do
+            checkLeaveBoat()
+            task.wait(0.1)
+        end
+        -- Tắt no clip
+        setBoatNoClip(boat, false)
+        if LocalPlayer.Character then
+            setPlayerNoClip(LocalPlayer.Character, false)
+        end
+        playerTweening = false
+    end)
+
+    if leviathanGateConnection then
+        leviathanGateConnection:Disconnect()
+    end
+    leviathanGateConnection = Workspace:WaitForChild("Map").ChildAdded:Connect(stopIfMapObjectAppears)
+end
+
+-- Hàm Auto Return
+local function autoReturnCheck()
+    while autoReturnEnabled do
+        if lastBoat and lastSeat and lastBoat.Parent then
+            local char = LocalPlayer.Character
+            local hrp = char and char:FindFirstChild("HumanoidRootPart")
+            if hrp then
+                local seatPos = lastSeat.Position
+                local distance = (hrp.Position - seatPos).Magnitude
+                if distance > 10 then
+                    local speed = 300
+                    local time = distance / speed
+
+                    local info = TweenInfo.new(time, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+                    local goal = { CFrame = CFrame.new(seatPos + Vector3.new(0,3,0)) }
+                    local tween = TweenService:Create(hrp, info, goal)
+                    tween:Play()
+                end
+            end
+        end
+        task.wait(1)
+    end
+end
+
+-- Hàm Kill Aura
+local function killAuraLoop()
+    local monstersFolder = Workspace:FindFirstChild("Enemies")
+    while killAuraEnabled do
+        task.wait(1)
+        local char = LocalPlayer.Character
+        if not char then continue end
+        local hrp = char:FindFirstChild("HumanoidRootPart")
+        if not hrp or not monstersFolder then continue end
+
+        for _, monster in pairs(monstersFolder:GetChildren()) do
+            local hum = monster:FindFirstChild("Humanoid")
+            local mrp = monster:FindFirstChild("HumanoidRootPart")
+            if hum and mrp and hum.Health > 0 then
+                local distance = (mrp.Position - hrp.Position).Magnitude
+                if distance <= killAuraRange then
+                    hum.Health = 0
+                end
+            end
+        end
+    end
+end
+
+-- Hàm Anti Die
+local antiDieEnabled = false
+local originalPosition = nil
+local teleporting = false
+local function teleportPlayerUp()
+    while antiDieEnabled and teleporting do
+        local character = LocalPlayer.Character
+        if character and character:FindFirstChild("HumanoidRootPart") then
+            local hrp = character.HumanoidRootPart
+            hrp.CFrame = hrp.CFrame + Vector3.new(0, 200, 0) -- Teleport lên 200 studs
+        end
+        task.wait(0.1) -- Lặp lại sau mỗi 0.1 giây
+    end
+end
+
+local function checkHealth()
+    while antiDieEnabled do
+        local character = LocalPlayer.Character
+        if character and character:FindFirstChild("Humanoid") then
+            local humanoid = character.Humanoid
+            if humanoid.Health == 0 then
+                teleporting = false
+            elseif humanoid.Health <= (humanoid.MaxHealth * 0.3) then
+                if not teleporting then
+                    teleporting = true
+                    originalPosition = character.HumanoidRootPart.Position -- Lưu vị trí cũ
+                    teleportPlayerUp() -- Bắt đầu teleport lên trời
+                end
+            else
+                if teleporting then
+                    if originalPosition then
+                        local hrp = character:FindFirstChild("HumanoidRootPart")
+                        if hrp then
+                            hrp.CFrame = CFrame.new(originalPosition)
+                        end
+                        originalPosition = nil
+                    end
+                    teleporting = false -- Dừng teleport nếu HP > 30%
+                end
+            end
+        end
+        task.wait(0.1) -- Kiểm tra HP mỗi 0.1 giây
+    end
+end
+
+-- Hàm DashNoCD
+_G.DodgewithoutCool = false
+local dashNoCDEnabled = false
+local function NoCooldown()
+    if _G.DodgewithoutCool then
+        local player = game.Players.LocalPlayer
+        local character = plaThird_Sea = true
 end
 
 
