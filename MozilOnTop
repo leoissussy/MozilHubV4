@@ -7040,7 +7040,7 @@ Tabs.Misc:AddButton({
 	Title = "Fake Fruit",
 	Description = "",
 	Callback = function()
-        game.Players.LocalPlayer:Kick("You are banned for PERMANENT Reason : Cheating | ID78")
+        game.Players.LocalPlayer:Kick("You are banned for PERMANENT Reason : you stole zioles gf vro🥀 | ID78")
 	end
 })
 
